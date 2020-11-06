@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: docker-spring-boot
+spec:
+  type: NodePort
+  selector:
+    app: docker-spring-boot
+  ports:
+    - name: tomcat-port
+      protocol: TCP
+      port: 8066
+      targetPort: 8066
+      nodePort: 30088

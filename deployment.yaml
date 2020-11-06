@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-spring-boot-deployment
+spec:
+  selector:
+    matchLabels:
+     app: docker-spring-boot
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: docker-spring-boot
+    spec:
+      containers:
+        - name: docker-spring-boot
+          image: prathisrec/test-repo:docker-image
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8066
+          
