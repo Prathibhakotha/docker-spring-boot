@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git credentialsId: 'gitcredentials', url:'https://github.com/Prathibhakotha/docker-spring-boot.git'
+                git branch: 'main', credentialsId: 'gitcredentials', url:'https://github.com/Prathibhakotha/docker-spring-boot.git'
 
                 // Run Maven on a Unix agent.
                 sh "mvn clean install"
