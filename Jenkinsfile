@@ -2,7 +2,8 @@ pipeline {
     agent any
     stages {
         stage('build') {
-            steps {
+		 git url: 'https://github.com/Prathibhakotha/docker-spring-boot'
+            withMaven {
                 sh 'mvn --version'
             }
         }
